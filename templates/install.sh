@@ -16,7 +16,7 @@ echo -e "\nCreating the database";
 curl -X PUT ${target}
 
 echo -e "\nInstalling the app";
-curl -X GET {{app_url}} -H "Accept: application/json" | \
+curl -X GET {{app_url}}?attachments=true -H "Accept: application/json" | \
     sed s/\"_rev\"[^,]*,// | \
     curl -X PUT ${target}/_design/{{app}} -H "Content-Type: application/json" -d @- \
     && echo -e "\n${target}/_design/{{app}}{{open_path}}" && exit
