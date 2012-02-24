@@ -384,7 +384,7 @@ code {
 }
 #install_options #install_to_dashboard {
     border-left: 1px solid #ccc;
-    border-right: 2px solid white;
+    border-right: 1px solid #ccc;
     width: 217px;
     height: 190px;
     float: left;
@@ -398,7 +398,7 @@ code {
     padding: 10px 50px 10px 40px;
 }
 #install_options #create_dashboard img {
-    margin-top: -11px;
+    margin-top: 2px;
 }
 .manual_install_instructions {
     text-align: center;
@@ -409,9 +409,16 @@ code {
 }
 
 .dashboard_install_instructions {
-    text-align: center;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
     height: 230px;
     overflow: auto;
+}
+.dashboard_install_instructions img {
+    position: absolute;
+    top: 0;
+    left: 20px;
 }
 
 .dashboard_install_instructions ul {
@@ -438,4 +445,8 @@ code {
 }
 .dashboard_install_instructions #dashboard_custom_text {
     width: 320px;
+}
+
+.dashboard_urls.advanced {
+    display: none;
 }

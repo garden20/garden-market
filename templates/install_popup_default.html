@@ -1,0 +1,11 @@
+<div class="dashboard_install_instructions">
+  <img src="{{baseURL}}/static/img/download.png" />
+  <h2>Install to:</h2>
+  {{#if dashboard_urls}}
+    <ul class="dashboard_urls">
+      {{#head dashboard_urls}}
+        <li><label for="dashboard_url_{{id}}">{{url}}</label></li>
+      {{/head}}
+    </ul>
+  {{/if}}
+</div>
