@@ -128,7 +128,7 @@ ul.apps li a {
     margin-bottom: 8px;
 }
 .install_actions {
-    margin-top: 16px;
+    margin-top: 0;
     padding-left: 20px;
 }
 .install_actions .btn {
@@ -156,15 +156,13 @@ ul.apps li a {
 ul.inline_categories {
     margin: 0;
     padding: 0;
-    display: inline;
     list-style: none;
 }
 ul.inline_categories li {
-    margin: 0 0.5em 0 0;
+    margin: 5px 0.5em 0 0;
     padding: 0;
-    display: inline;
 }
-ul.inline_categories li a {
+ul.inline_categories li a.tag {
     display: inline;
     padding: 0.5em 1em;
     background-color: #eee;
@@ -174,13 +172,12 @@ ul.inline_categories li a {
     text-transform: uppercase;
     color: @black;
 }
-ul.inline_categories li a:hover {
+ul.inline_categories li a.tag:hover {
     text-decoration: none;
     background-color: #ddd;
     border: 1px solid #bbb;
 }
 
-.app_details .author,
 .app_details .updated {
     border-left: 1px solid #ccc;
     padding-left: 1em;
