@@ -7,18 +7,7 @@
     <title>{{title}}</title> 
   </head> 
   <body> 
-    <div id="topbar">
-      <img id="logo" src="{{baseURL}}/static/img/kanso_topbar_logo.png" alt="Kanso" />
-      <ul id="topnav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/install">Install</a></li>
-        <li class="active"><a href="{{baseURL}}">Apps</a></li>
-        <li><a href="/packages">Packages</a></li>
-        <li><a href="/docs">Docs</a></li>
-        <li><a href="https://github.com/kanso/kanso">Source</a></li>
-      </ul>
-      {{{include "duality-contrib-session/session.html"}}}
-    </div>
+
     <div id="content">
       {{{content}}}
     </div>
@@ -28,6 +17,7 @@
     <script type="text/javascript" src="{{baseURL}}/duality.js"></script>
     <script type="text/javascript" src="{{baseURL}}/static/js/highlight/highlight.js"></script>
     <script type="text/javascript" src="{{baseURL}}/static/js/highlight/languages/javascript.js"></script>
+    <script type="text/javascript" src="/dashboard/_design/dashboard/_rewrite/static/js/topbar.js"></script>
     <script type="text/javascript">
 
       var _gaq = _gaq || [];
