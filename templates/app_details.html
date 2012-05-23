@@ -38,7 +38,7 @@
 
       <div id="details_sidebar" class="span5">
         <h4>{{meta.config.description}}</h4>
-        <a class="btn large primary install_btn" href="#">Install</a>
+        <a class="btn large primary" href="{{baseURL}}/details/{{id}}/install">Install</a>
         {{#each long_description_paragraphs}}
           <p>{{this}}</p>
         {{/each}}

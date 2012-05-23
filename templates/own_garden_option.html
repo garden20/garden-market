@@ -1,0 +1,12 @@
+{{#each dashboard_urls}}
+<li>
+    <a href="{{url}}" class="g20">
+      {{#if img}}
+        <img src="{{img}}" />
+      {{else}}
+        <img src="{{../baseURL}}/static/img/install_to_dashboard.png" />
+      {{/if}}
+      {{url}}
+    </a>
+</li>
+{{/each}}
