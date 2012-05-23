@@ -29,44 +29,28 @@
 <div class="container">
   <div id="content">
     <div class="row">
-
       <div class="span11 install_where">
-          <h5>Install, Choose where:</h5></h2>
-          <div id="hosting_providers" class="clear">
-              <h2>Hosted Garden</h2>
-              <p>Independently provided hosting platforms. Choose one, signup or login, and finish the install. </p>
-              <ul>
-                  <li>
-                      <a href="#" class="g20">
-                        <img src="{{baseURL}}/static/img/garden20.png" alt="Garden20" />
-                        Garden20
-                      </a>
-                  </li>
-              </ul>
+          <h2>Installation Location</h2>
+          <table class="table zebra-striped">
+              <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Type</th>
+                    <th>Info</th>
+                </tr>
+              </thead>
+              <tbody>
 
 
-
-          </div>
-          <div id="install_to_dashboard" class="clear">
-              <h2>Your Own Garden</h2>
-              <p>Install to an existing Garden<br/><a href="{{baseURL}}/help/dashboard">Learn more</a></p>
-
-              <ul>
-
-              </ul>
-
-
-          </div>
-          <div id="manual_install" class="clear">
-            <h2>CouchDB</h2>
-            <p>Manually install to a CouchDB without a Dashboard</p>
-            <img src="{{baseURL}}/static/img/couch.png" alt="Manual install" />
-
-          </div>
+              </tbody>
+          </table>
       </div>
-
-
-
+    </div>
+    <div class="row">
+        <div class="span11">
+            <button class="btn large primary next">Next</button>
+            <h3 class="please-wait" style="display: none;">Please wait...</h3>
+        </div>
     </div>
   </div>
 </div>

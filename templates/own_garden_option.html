@@ -1,12 +1,19 @@
 {{#each dashboard_urls}}
-<li>
-    <a href="{{url}}" class="g20">
-      {{#if img}}
-        <img src="{{img}}" />
-      {{else}}
-        <img src="{{../baseURL}}/static/img/install_to_dashboard.png" />
-      {{/if}}
-      {{url}}
-    </a>
-</li>
+<tr>
+    <td class="radio">
+        <input type="radio" name="install" value="{{url}}"/>
+    </td>
+    <td class="type_td">
+        {{#if img}}
+          <img src="{{img}}"/>
+        {{else}}
+          <img src="{{../baseURL}}/static/img/install_to_dashboard.png"  alt="{{type}}"/>
+        {{/if}}
+        <div class="type">{{type}}</div>
+    </td>
+    <td>
+
+        <div class="name">{{name}}</div>
+    </td>
+</tr>
 {{/each}}
