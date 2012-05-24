@@ -12,8 +12,13 @@
         <div class="type">{{type}}</div>
     </td>
     <td>
-
-        <div class="name">{{name}}</div>
+        <div class="name">
+        {{#if other}}
+            <input type="text" name="other-url" id="other-url" placeholder="{{name}}" class="span7"/>
+        {{else}}
+                {{name}}
+        {{/if}}
+        </div>
     </td>
 </tr>
 {{/each}}
