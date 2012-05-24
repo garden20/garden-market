@@ -1,0 +1,61 @@
+<div id="secondbar" class="app_details">
+  <div class="container">
+    <div class="row">
+      <div class="span2">
+        <img src="{{baseURL}}/_db/{{id}}/{{icon_96}}" width="96" />
+      </div>
+      <div class="span9">
+        <h1>{{title}}</h1>
+        <span class="author">
+          By <a href="{{baseURL}}/user/{{meta.pushed_by}}">{{meta.pushed_by}}</a>
+        </span>
+        <span class="updated">
+          Updated {{updated}}
+        </span>
+
+      </div>
+      <div class="span4 install_actions">
+          <ul class="inline_categories">
+              <li><a href="{{baseURL}}">Home</a> &raquo; </li>
+            {{#each meta.config.categories}}
+              <li><a class="tag" href="{{baseURL}}/category/{{this}}">{{this}}</a></li>
+            {{/each}}
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div id="content">
+    <div class="row">
+      <div class="span11 install_where">
+          <h2>Installation Location</h2>
+          <table class="table" style="border: 0">
+            <tbody>
+            <tr>
+                <td class="type_td">
+                    <img src="{{../baseURL}}/static/img/couch.png"  alt="Couch"/>
+                    <div class="type">Couch</div>
+                </td>
+                <td>
+                    <div class="name">
+                        CouchDB manual install
+                    </div>
+                </td>
+            </tr>
+
+            </tbody>
+          </table>
+
+      </div>
+    </div>
+    <div class="row">
+        <div class="manual_install_instructions">
+          <h2>Manual install (bash script)</h2>
+          <pre>curl {{install_script_url}} | bash</pre>
+          <p>Copy and paste the above command into your bash console, you will be prompted for the URL to install the app to. You may want to <a rel="external" href="{{install_script_url}}">read the script</a> first.</p>
+        </div>
+    </div>
+  </div>
+</div>
