@@ -29,6 +29,7 @@
         "path": null,
         "url": null,
         "jsonp": null,
-        "cookies": null
+        "cookies": null,
+        "flattr" : null
     }
 }
