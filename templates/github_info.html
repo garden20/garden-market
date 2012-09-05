@@ -1,0 +1,20 @@
+<tr>
+    <th>Github</th>
+    <td><a href="{{html_url}}/stargazers"> {{watchers}} watchers</a></td>
+</tr>
+<tr>
+    <th>Owner</th>
+    <td>
+        <img src="{{owner.avatar_url}}" />
+        <br/>
+        {{owner.login}}
+    </td>
+</tr>
+
+<tr>
+    {{#if has_issues}}
+        <th>Issues</th>
+        <td><a href="{{html_url}}/issues">Tracker</a> - {{open_issues_count}} issues</td>
+    {{/if}}
+</tr>
+

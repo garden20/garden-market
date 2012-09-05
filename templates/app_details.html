@@ -43,16 +43,23 @@
         {{#each long_description_paragraphs}}
           <p>{{this}}</p>
         {{/each}}
-        {{#if meta.config.url}}
-          <p><a href="{{meta.config.url}}">Website</a></p>
-        {{/if}}
-        {{#if flattr_link}}
-          <p>
-              {{{flattr_link}}}
-          </p>
-        {{/if}}
+        <table class="">
+            <tbody class="info_table">
+                {{#if meta.config.url}}
+                  <tr>
+                      <th>Website</th>
+                      <td><a href="{{meta.config.url}}">{{meta.config.url}}</a></td>
+                  </tr>
+                {{/if}}
+                {{#if flattr_link}}
+                  <tr>
+                      <th>Donate</th>
+                      <td>{{{flattr_link}}}</td>
+                  </tr>
+                {{/if}}
+            </tbody>
+        </table>
       </div>
-
     </div>
   </div>
 </div>
