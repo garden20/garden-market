@@ -39,9 +39,11 @@
                         {{/each}}
 
                       </div>
+                      {{#if screenshots_many}}
                       <!-- Carousel nav -->
                       <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
                       <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                      {{/if}}
                     </div>
 
                     <div class="loading">Loading&hellip;</div>
@@ -59,12 +61,6 @@
         {{/each}}
         <table class="">
             <tbody class="info_table">
-                {{#if meta.config.url}}
-                  <tr>
-                      <th>Website</th>
-                      <td><a href="{{meta.config.url}}">{{meta.config.url}}</a></td>
-                  </tr>
-                {{/if}}
                 {{#if flattr_link}}
                   <tr>
                       <th>Donate</th>
@@ -83,7 +79,12 @@
                       {{/each}}
                     </td>
                 </tr>
-
+                {{#if meta.config.url}}
+                  <tr>
+                      <th>Website</th>
+                      <td><a href="{{meta.config.url}}">{{meta.config.url}}</a></td>
+                  </tr>
+                {{/if}}
             </tbody>
         </table>
       </div>
