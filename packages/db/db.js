@@ -457,9 +457,15 @@ DB.prototype.getRewrite = function (name, path, /*optional*/q, callback) {
     // prepend forward-slash if missing
     path = (path[0] === '/') ? path: '/' + path;
 
+    try {
+        var data = exports.stringifyQuery(q);
+    }
+    catch (e) {
+        return callback(e);
+    }
     var req = {
         url: this.url + '/_design/' + exports.encode(name) + '/_rewrite' + path,
-        data: exports.stringifyQuery(q)
+        data: data
     };
     exports.request(req, callback);
 };
@@ -499,9 +505,15 @@ DB.prototype.allDocs = function (/*optional*/q, callback) {
         callback = q;
         q = {};
     }
+    try {
+        var data = exports.stringifyQuery(q);
+    }
+    catch (e) {
+        return callback(e);
+    }
     var req = {
         url: this.url + '/_all_docs',
-        data: exports.stringifyQuery(q),
+        data: data,
         expect_json: true
     };
     exports.request(req, callback);
@@ -528,10 +540,16 @@ DB.prototype.getDoc = function (id, /*optional*/q, callback) {
         callback = q;
         q = {};
     }
+    try {
+        var data = exports.stringifyQuery(q);
+    }
+    catch (e) {
+        return callback(e);
+    }
     var req = {
         url: this.url + '/' + exports.encode(id),
         expect_json: true,
-        data: exports.stringifyQuery(q)
+        data: data
     };
     exports.request(req, callback);
 };
@@ -557,10 +575,16 @@ DB.prototype.saveDoc = function (doc, callback) {
         method = "PUT";
         url += '/' + doc._id;
     }
+    try {
+        var data = JSON.stringify(doc);
+    }
+    catch (e) {
+        return callback(e);
+    }
     var req = {
         type: method,
         url: url,
-        data: JSON.stringify(doc),
+        data: data,
         processData: false,
         contentType: 'application/json',
         expect_json: true
@@ -614,13 +638,62 @@ DB.prototype.getView = function (name, view, /*opt*/q, callback) {
         q = {};
     }
     var viewname = exports.encode(view);
+    try {
+        var data = exports.stringifyQuery(q);
+    }
+    catch (e) {
+        return callback(e);
+    }
     var req = {
         url: (this.url +
             '/_design/' + exports.encode(name) +
             '/_view/' + viewname
         ),
         expect_json: true,
-        data: exports.stringifyQuery(q)
+        data: data
+    };
+    exports.request(req, callback);
+};
+
+
+/**
+ * Fetches a spatial view from the database the app is running on. Results are
+ * passed to the callback, with the first argument of the callback reserved
+ * for any exceptions that occurred (node.js style).
+ *
+ * __Parameters:__
+ * * bbox - the bounding box filter e.g.: bbox: '0,0,180,90'
+ * * plane_bounds - e.g.: plane_bounds: '-180,-90,180,90'
+ * * stale - stale: 'ok' prevents the spatial index to be rebuilt
+ * * count - count: true will only return the number of geometries
+ *
+ * @name DB.getSpatialView(name, view, q, callback)
+ * @param {String} name - name of the design doc to use
+ * @param {String} view - name of the view
+ * @param {Object} q - query parameters (see options above)
+ * @param {Function} callback(err,response)
+ * @api public
+ */
+
+DB.prototype.getSpatialView = function (name, view, q, callback) {
+    if (!callback) {
+        callback = q;
+        q = {};
+    }
+    var viewname = exports.encode(view);
+    try {
+        var data = exports.stringifyQuery(q);
+    }
+    catch (e) {
+        return callback(e);
+    }
+    var req = {
+        url: (this.url +
+            '/_design/' + exports.encode(name) +
+            '/_spatial/' + viewname
+        ),
+        expect_json: true,
+        data: data
     };
     exports.request(req, callback);
 };
@@ -649,10 +722,16 @@ DB.prototype.getList = function (name, list, view, /*optional*/q, callback) {
     }
     var listname = exports.encode(list);
     var viewname = exports.encode(view);
+    try {
+        var data = exports.stringifyQuery(q);
+    }
+    catch (e) {
+        return callback(e);
+    }
     var req = {
         url: this.url + '/_design/' + exports.encode(name) +
             '/_list/' + listname + '/' + viewname,
-        data: exports.stringifyQuery(q)
+        data: data
     };
     exports.request(req, callback);
 };
@@ -678,12 +757,18 @@ DB.prototype.getShow = function (name, show, docid, /*optional*/q, callback) {
         callback = q;
         q = {};
     }
+    try {
+        var data = exports.stringifyQuery(q);
+    }
+    catch (e) {
+        return callback(e);
+    }
     var showname = exports.encode(show);
     var show_url = this.url + '/_design/' +
         exports.encode(name) + '/_show/' + exports.encode(showname);
     var req = {
         url: show_url + (docid ? '/' + exports.encode(docid): ''),
-        data: exports.stringifyQuery(q)
+        data: data
     };
     exports.request(req, callback);
 };
@@ -757,11 +842,17 @@ DB.prototype.changes = function (/*optional*/q, callback) {
 
     function getChanges(since) {
         q.since = since;
+        try {
+            var data = exports.stringifyQuery(q);
+        }
+        catch (e) {
+            return callback(e);
+        }
         var req = {
             type: 'GET',
             expect_json: true,
             url: that.url + '/_changes',
-            data: exports.stringifyQuery(q)
+            data: data
         };
         var cb = function (err, data) {
             var result = callback.apply(this, arguments);
@@ -822,11 +913,17 @@ DB.prototype.bulkSave = function (docs, /*optional*/ options, callback) {
         callback = options;
         options = {};
     }
-    options.docs = doc;
+    options.docs = docs;
+    try {
+        var data = JSON.stringify(options);
+    }
+    catch (e) {
+        return callback(e);
+    }
     var req = {
         type: 'POST',
         url: this.url + '/_bulk_docs',
-        data: JSON.stringify(options),
+        data: data,
         processData: false,
         contentType: 'application/json',
         expect_json: true
@@ -867,8 +964,13 @@ DB.prototype.bulkGet = function (keys, /*optional*/ q, callback) {
         CouchDB requires that these be JSON, even though they
         will be URL-encoded as part of the request process. */
 
-    for (var k in q) {
-        q[k] = JSON.stringify(q[k]);
+    try {
+        for (var k in q) {
+            q[k] = JSON.stringify(q[k]);
+        }
+    }
+    catch (e) {
+        return callback(e);
     }
 
     /* Make request:
@@ -880,11 +982,17 @@ DB.prototype.bulkGet = function (keys, /*optional*/ q, callback) {
         url: this.url + '/_all_docs' + exports.escapeUrlParams(q)
     };
     if (keys) {
+        try {
+            var data = JSON.stringify({ keys: keys});
+        }
+        catch (e) {
+            return callback(e);
+        }
         req = _.extend(req, {
             type: 'POST',
             processData: false,
             contentType: 'application/json',
-            data: JSON.stringify({ keys: keys })
+            data: data
         });
     } else {
         req = _.extend(req, {

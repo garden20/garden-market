@@ -1,7 +1,7 @@
 {
-    "name": "garden",
+    "name": "market",
     "version": "0.0.1",
-    "description": "CouchApp for sharing other CouchApps",
+    "description": "A Garden Market.",
     "modules": "lib",
     "load": "lib/app",
     "less": {
@@ -9,20 +9,20 @@
         "compile": "static/css/garden.less",
         "remove_from_attachments": true
     },
-    "base_template": "base.html",
     "handlebars": {
         "templates": "templates"
     },
     "attachments": "static",
     "dependencies": {
+        "db" : null,
+        "events" : null,
+        "session" : null,
+        "settings" : null,
         "modules": null,
         "properties": null,
         "attachments": null,
         "handlebars": null,
         "handlebars-helpers": ">=0.0.5",
-        "duality-handlebars": null,
-        "duality": null,
-        "duality-contrib-session-hb": null,
         "less-precompiler": null,
         "sanitize": null,
         "datelib": null,
