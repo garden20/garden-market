@@ -3,8 +3,9 @@
     <div class="stones"></div>
     <div class="row">
       <div class="span10">
-        <h1>App Garden</h1>
-        <p>A place for sharing and discovering CouchApps</p>
+          <img src="static/img/garden-market.png " alt="Garden Market" class="pull-left main-icon" />
+          <h1>Garden Market</h1>
+          <p>Pick some apps to install into your garden.</p>
       </div>
       <div class="span6">
       </div>
@@ -23,7 +24,7 @@
           one before uploading an app to the Garden. Make sure you're using Kanso
           0.1.4 or higher, then use the following command to upload your app:
         </p>
-        <pre>kanso push {{upload_url}}</pre>
+        <pre class="upload_url"></pre>
 
         <hr/>
 
@@ -147,10 +148,10 @@
       <div id="sidebar" class="span4">
         <ul class="menu">
           <li><a href="{{baseURL}}">Home</a></li>
-          <li class="active"><a href="{{baseURL}}/upload_app">Upload app</a></li>
+          <li class="active"><a href="{{baseURL}}upload_app">Upload app</a></li>
         </ul>
         <ul id="categories" class="menu">
-          <li><a href="{{baseURL}}/all">All</a></li>
+          <li><a href="{{baseURL}}all">All</a></li>
         </ul>
       </div>
 
