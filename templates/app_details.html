@@ -13,7 +13,7 @@
 
       </div>
       <div class="span4 install_actions">
-
+            <a href="{{baseURL}}">&larr; Back to app listings</a>
       </div>
     </div>
   </div>
@@ -24,8 +24,29 @@
     <div class="row">
 
       <div class="span11">
+
         <div id="screenshot_container">
-          <div class="loading">Loading&hellip;</div>
+            <div class="paper">
+                <div class="paper-inner">
+                    <div id="myCarousel" class="carousel slide" data-interval="">
+                      <!-- Carousel items -->
+                      <div class="carousel-inner">
+
+                        {{#each screenshots}}
+                            <div class="item {{#if active}}active{{/if}}">
+                                <img src="{{src}}" />
+                            </div>
+                        {{/each}}
+
+                      </div>
+                      <!-- Carousel nav -->
+                      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                    </div>
+
+                    <div class="loading">Loading&hellip;</div>
+                </div>
+            </div>
         </div>
       </div>
 
@@ -52,11 +73,7 @@
                 {{/if}}
                 <tr>
                     <th>Version</th>
-                    <td>{{meta.config.version}}</td>
-                </tr>
-                <tr>
-                    <th>Updated</th>
-                    <td>{{updated}}</td>
+                    <td><b>{{meta.config.version}}</b> last updated {{updated}}</td>
                 </tr>
                 <tr>
                     <th>Categories</th>

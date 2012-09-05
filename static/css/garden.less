@@ -8,6 +8,7 @@
 @import "sidebar.less";
 @import "paper.less";
 @import "note.less";
+@import "carousel.less";
 
 .cmd_username,
 .cmd_password {
@@ -140,8 +141,9 @@ ul.apps li a {
 }
 
 #details_sidebar {
-    padding-left: 20px;
+    padding-left: 19px;
     width: 260px;
+
 }
 #details_sidebar h4 {
     line-height: 1.5;
@@ -305,7 +307,6 @@ ul.apps li a {
     width: 640px;
     height: 400px;
     position: relative;
-    border-right: 1px dotted #999;
     margin-top: 1em;
 }
 #screenshot_container .loading {
@@ -530,3 +531,7 @@ code {
     min-width: 250px;
 }
 
+#screenshot_container .item img {
+    width: 640px;
+    height: 400px;
+}
