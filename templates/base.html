@@ -2,22 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
   <head> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-    <link rel="stylesheet" type="text/css" href="{{baseURL}}/static/css/hljs_javascript.css" />
-    <link rel="stylesheet" type="text/css" href="{{baseURL}}/static/css/garden.css" />
-    <title>{{title}}</title> 
+    <link rel="stylesheet" type="text/css" href="{{baseURL}}static/css/hljs_javascript.css" />
+    <link rel="stylesheet" type="text/css" href="{{baseURL}}static/css/garden.css" />
+    <title>{{title}}</title>
+    <script type="text/javascript">
+        /** hack. since we cant do this server side correctly! **/
+        /* This just makes sure we have a trailing slash on our url */
+        var db_name = '{{db_name}}';
+        if (window.location.pathname === '/' + db_name) {
+            window.location = '/' + db_name + '/';
+        }
+    </script>
   </head> 
-  <body> 
+  <body>
 
     <div id="content">
       {{{content}}}
     </div>
-    <script type="text/javascript" src="{{baseURL}}/static/js/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="{{baseURL}}/static/js/json2.js"></script>
-    <script type="text/javascript" src="{{baseURL}}/modules.js"></script>
-    <script type="text/javascript" src="{{baseURL}}/static/js/highlight/highlight.js"></script>
-    <script type="text/javascript" src="{{baseURL}}/static/js/highlight/languages/javascript.js"></script>
+
+    <script type="text/javascript" src="{{baseURL}}static/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="{{baseURL}}static/js/json2.js"></script>
+    <script type="text/javascript" src="{{baseURL}}modules.js"></script>
+    <script type="text/javascript" src="{{baseURL}}static/js/highlight/highlight.js"></script>
+    <script type="text/javascript" src="{{baseURL}}static/js/highlight/languages/javascript.js"></script>
     <script type="text/javascript" src="/dashboard/_design/dashboard/_rewrite/static/js/topbar.js"></script>
     <script type="text/javascript">
+        var ui = require('lib/ui');
+        {{{onload}}}
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-27460379-1']);
