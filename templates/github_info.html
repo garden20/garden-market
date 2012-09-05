@@ -10,11 +10,16 @@
         {{owner.login}}
     </td>
 </tr>
-
+{{#if has_issues}}
 <tr>
-    {{#if has_issues}}
         <th>Issues</th>
         <td><a href="{{html_url}}/issues">Tracker</a> - {{open_issues_count}} issues</td>
-    {{/if}}
 </tr>
+{{/if}}
+{{#if git_commit}}
+<tr>
+    <th>Tag</th>
+    <td><a href="{{html_url}}/tree/{{git_commit}}">{{git_commit_small}}</a></td>
+</tr>
+{{/if}}
 

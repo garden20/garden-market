@@ -153,29 +153,12 @@ ul.apps li a {
 
 }
 
-ul.inline_categories {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.categories a.tag:after {
+    content: ',';
 }
-ul.inline_categories li {
-    margin: 5px 0.5em 0 0;
-    padding: 0;
-}
-ul.inline_categories li a.tag {
-    display: inline;
-    padding: 0.5em 1em;
-    background-color: #eee;
-    .border-radius(3px);
-    border: 1px solid #ccc;
-    font-size: 0.75em;
-    text-transform: uppercase;
-    color: @black;
-}
-ul.inline_categories li a.tag:hover {
-    text-decoration: none;
-    background-color: #ddd;
-    border: 1px solid #bbb;
+
+.categories a.tag:last-child:after {
+    content:'';
 }
 
 .app_details .updated {
