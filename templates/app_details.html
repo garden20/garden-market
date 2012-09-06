@@ -1,19 +1,17 @@
-<div id="secondbar" class="app_details">
+<div id="secondbar">
   <div class="container">
     <div class="row">
-      <div class="span2">
-        <img src="{{baseURL}}_db/{{id}}/{{icon_96}}" width="96" />
+      <div class="span5">
+        <div class="icon">
+            <a href="{{baseURL}}"><img src="{{baseURL}}static/img/logo.png"/></a>
+        </div>
       </div>
-      <div class="span9">
-        <h1>{{title}}</h1>
-        <span class="author">
-          By <a href="{{baseURL}}user/{{meta.pushed_by}}">{{meta.pushed_by}}</a>
-        </span>
+      <div class="span10">
+          <form class="search">
+              <input type="text" name="q" placeholder="Search" />
+              <button class="btn">&rang;</button>
+          </form>
 
-
-      </div>
-      <div class="span4 install_actions">
-            <a href="{{baseURL}}">&larr; Back to app listings</a>
       </div>
     </div>
   </div>
@@ -21,73 +19,87 @@
 
 <div class="container">
   <div id="content">
-    <div class="row">
+    <div class="row app_top">
 
-      <div class="span11">
+        <div id="details_sidebar" class="span5">
+            <img src="{{baseURL}}_db/{{id}}/{{icon_96}}" width="96" style="float: left"/>
+            <h2>{{title}}</h2>
+            <div class="author">
+              By <a href="{{baseURL}}user/{{meta.pushed_by}}">{{meta.pushed_by}}</a>
+            </div>
+            <div style="clear: both"></div>
 
-        <div id="screenshot_container">
-            <div class="paper">
-                <div class="paper-inner">
-                    <div id="myCarousel" class="carousel slide" data-interval="">
-                      <!-- Carousel items -->
-                      <div class="carousel-inner">
+          <h4>{{meta.config.description}}</h4>
+          <a class="btn large primary" href="{{baseURL}}details/{{id}}/install">Install</a>
 
-                        {{#each screenshots}}
-                            <div class="item {{#if active}}active{{/if}}">
-                                <img src="{{src}}" />
-                            </div>
-                        {{/each}}
+        </div>
+        <div class="span11">
+            <div id="screenshot_container">
+                <div class="paper">
+                    <div class="paper-inner">
+                        <div id="myCarousel" class="carousel slide" data-interval="">
+                          <!-- Carousel items -->
+                          <div class="carousel-inner">
 
-                      </div>
-                      {{#if screenshots_many}}
-                      <!-- Carousel nav -->
-                      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-                      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-                      {{/if}}
+                            {{#each screenshots}}
+                                <div class="item {{#if active}}active{{/if}}">
+                                    <img src="{{src}}" />
+                                </div>
+                            {{/each}}
+
+                          </div>
+                          {{#if screenshots_many}}
+                          <!-- Carousel nav -->
+                          <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                          <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                          {{/if}}
+                        </div>
+
+                        <div class="loading">Loading&hellip;</div>
                     </div>
-
-                    <div class="loading">Loading&hellip;</div>
                 </div>
             </div>
         </div>
-      </div>
+    </div>
+    <div class="row extra-details" >
+        <div class="span5 description-span">
 
-      <div id="details_sidebar" class="span5">
-        <h4>{{meta.config.description}}</h4>
-        <a class="btn large primary" href="{{baseURL}}details/{{id}}/install">Install</a>
-
-        {{#each long_description_paragraphs}}
-          <p>{{this}}</p>
-        {{/each}}
-        <table class="">
-            <tbody class="info_table">
-                {{#if flattr_link}}
-                  <tr>
-                      <th>Donate</th>
-                      <td>{{{flattr_link}}}</td>
-                  </tr>
-                {{/if}}
-                <tr>
-                    <th>Version</th>
-                    <td><b>{{meta.config.version}}</b> last updated {{updated}}</td>
-                </tr>
-                <tr>
-                    <th>Categories</th>
-                    <td class="categories">
-                      {{#each meta.config.categories}}
-                        <a class="tag" href="{{baseURL}}category/{{this}}">{{this}}</a>
-                      {{/each}}
-                    </td>
-                </tr>
-                {{#if meta.config.url}}
-                  <tr>
-                      <th>Website</th>
-                      <td><a href="{{meta.config.url}}">{{meta.config.url}}</a></td>
-                  </tr>
-                {{/if}}
-            </tbody>
-        </table>
-      </div>
+            &nbsp;
+        </div>
+        <div class="span11 about-span">
+            <h3>Description</h3>
+            {{#each long_description_paragraphs}}
+              <p>{{this}}</p>
+            {{/each}}
+            <table class="">
+                <tbody class="info_table">
+                    {{#if flattr_link}}
+                      <tr>
+                          <th>Donate</th>
+                          <td>{{{flattr_link}}}</td>
+                      </tr>
+                    {{/if}}
+                    <tr>
+                        <th>Version</th>
+                        <td><b>{{meta.config.version}}</b> last updated {{updated}}</td>
+                    </tr>
+                    <tr>
+                        <th>Categories</th>
+                        <td class="categories">
+                          {{#each meta.config.categories}}
+                            <a class="tag" href="{{baseURL}}category/{{this}}">{{this}}</a>
+                          {{/each}}
+                        </td>
+                    </tr>
+                    {{#if meta.config.url}}
+                      <tr>
+                          <th>Website</th>
+                          <td><a href="{{meta.config.url}}">{{meta.config.url}}</a></td>
+                      </tr>
+                    {{/if}}
+                </tbody>
+            </table>
+        </div>
     </div>
   </div>
 </div>
