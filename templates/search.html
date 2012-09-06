@@ -1,0 +1,44 @@
+<div id="secondbar">
+  <div class="container">
+    <div class="row">
+      <div class="span5">
+        <div class="icon">
+            <a href="{{baseURL}}"><img src="{{baseURL}}static/img/logo.png"/></a>
+        </div>
+      </div>
+      <div class="span10">
+          <form class="search">
+              <input type="text" name="q" placeholder="Search" value="{{terms}}"/>
+              <button class="btn">&rang;</button>
+          </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div id="content">
+    <div class="row">
+        <div class="span12 main-section search">
+          <p class="count"></p>
+          <table>
+              <tbody class="results">
+
+              </tbody>
+          </table>
+        </div>
+        <div id="sidebar" class="span4">
+
+            <ul class="menu">
+
+              <li><a href="{{baseURL}}">Home</a></li>
+              <li><a href="{{baseURL}}upload_app">Upload app</a></li>
+              <li class="active"><a href="{{baseURL}}search">Search Results</a></li>
+            </ul>
+            <ul id="categories" class="menu">
+              <li><a href="{{baseURL}}all">All</a></li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</div>

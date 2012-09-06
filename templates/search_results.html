@@ -1,0 +1,16 @@
+{{#each results}}
+<tr>
+    <td>
+        <a href="details/{{name}}"><img src="_db/{{_id}}/{{icon_96}}" width="96" style="float: left"/></a>
+        <a href="details/{{name}}" class="title">{{name}}</a>
+        <div class="by">
+            by <a href="user/{{by}}">{{by}}</a>
+        </div>
+        <div>
+            <a href="details/{{name}}/install" class="btn primary">INSTALL</a>
+        </div>
+    </td>
+    <td>{{description}}</td>
+</tr>
+
+{{/each}}
