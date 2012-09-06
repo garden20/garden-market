@@ -1,13 +1,17 @@
 <div id="secondbar">
   <div class="container">
-    <div class="stones"></div>
     <div class="row">
-      <div class="span10">
-          <img src="static/img/garden-market.png " alt="Garden Market" class="pull-left main-icon" />
-          <h1>Garden Market</h1>
-          <p>Pick some apps to install into your garden.</p>
+      <div class="span5">
+        <div class="icon">
+            <a href="{{baseURL}}"><img src="{{baseURL}}static/img/logo.png"/></a>
+        </div>
       </div>
-      <div class="span6">
+      <div class="span10">
+          <form class="search" action="{{baseURL}}search">
+              <input type="text" name="q" placeholder="Search" />
+              <button class="btn">&rang;</button>
+          </form>
+
       </div>
     </div>
   </div>
@@ -17,7 +21,7 @@
   <div id="content">
     <div class="row">
 
-      <div class="upload_instructions span11">
+      <div class="upload_instructions span11 main-section">
         <h2>Uploading an app</h2>
         <p>
           If you don't already have an account on this site, you'll need to create
