@@ -1,5 +1,7 @@
 var _ = require('views/lib/underscore')._;
 
+var stemmer = require('views/lib/porter_stemmer');
+
 var TreebankWordTokenizer = function() {
 };
 
@@ -88,6 +90,8 @@ TreebankWordTokenizer.prototype.tokenize = function(text) {
     text.forEach(function(token) {
         if(stopwords.indexOf(token) == -1)
             result.push(token);
+            var stemmed = stemmer.stem(token);
+            if (stemmed !== token) result.push(stemmed);
     });
 
 
