@@ -185,6 +185,30 @@ ul.apps li a {
     margin-bottom: @baseline*1.0;
 
 }
+#details_sidebar .install_msg {
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+#details_sidebar li {
+    color: #aaa;
+    font-style: italic;
+}
+#details_sidebar li .current {
+    color: #dadada;
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+#details_sidebar ol {
+    margin-bottom: 15px;
+}
+
+#details_sidebar ol.sub {
+    list-style-type: lower-alpha;
+    font-size: smaller;
+}
 
 .extra-details {
     margin-top: 25px;
@@ -482,12 +506,13 @@ code {
 }
 
 .install_where {
-    background-color: #FCFCFF;
-    border-radius: 10px;
-    padding: 5px 40px 0px 0px;
+    border-top: 6px solid #95B774;
     margin-bottom: 10px;
 }
 
+.install_where table {
+    width: 100%
+}
 
 .install_where h2 {
     line-height: 40px;
@@ -543,7 +568,7 @@ code {
 .advanced {
     width: 200px;
     position: relative;
-    left: 520px;
+    left: 450px;
     top: -10px;
     font-size: 80%;
 

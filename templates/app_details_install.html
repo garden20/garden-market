@@ -1,26 +1,14 @@
-<div id="secondbar" class="app_details">
+<div id="secondbar">
   <div class="container">
     <div class="row">
-      <div class="span2">
-        <img src="{{baseURL}}_db/{{id}}/{{icon_96}}" width="96" />
+      <div class="span5">
+        <div class="icon">
+            <a href="{{baseURL}}"><img src="{{baseURL}}static/img/logo.png"/></a>
+        </div>
       </div>
-      <div class="span9">
-        <h1>{{title}}</h1>
-        <span class="author">
-          By <a href="{{baseURL}}user/{{meta.pushed_by}}">{{meta.pushed_by}}</a>
-        </span>
-        <span class="updated">
-          Updated {{updated}}
-        </span>
+      <div class="span10">
 
-      </div>
-      <div class="span4 install_actions">
-          <ul class="inline_categories">
-              <li><a href="{{baseURL}}">Home</a> &raquo; </li>
-            {{#each meta.config.categories}}
-              <li><a class="tag" href="{{baseURL}}category/{{this}}">{{this}}</a></li>
-            {{/each}}
-          </ul>
+
       </div>
     </div>
   </div>
@@ -28,33 +16,47 @@
 
 <div class="container">
   <div id="content">
-    <div class="row">
-      <div class="span11 install_where">
-          <h2>Installation Location</h2>
+    <div class="row app_top">
+      <div id="details_sidebar" class="span5">
+          <img src="{{baseURL}}_db/{{id}}/{{icon_96}}" width="96" style="float: left"/>
+          <h2>{{title}}</h2>
+          <div class="author">
+              By <a href="{{baseURL}}user/{{meta.pushed_by}}">{{meta.pushed_by}}</a>
+          </div>
+          <div style="clear: both"></div>
+
+          <h4>{{meta.config.description}}</h4>
+          <div class="install_msg"></div>
+          <ol>
+              <li><span class="current">Select Installation Location</span>
+                    <ol class="sub">
+                        <li>Signup/Login</li>
+                    </ol>
+              </li>
+              <li>Confirm And Complete</li>
+          </ol>
+      </div>
+
+      <div class="span10 install_where">
+
+          <h1>1. Select Installation Location</h1>
           <table class="table zebra-striped">
-              <thead>
-                <tr>
-                    <th class="radio">Select</th>
-                    <th class="type_td">Type</th>
-                    <th>Info</th>
-                </tr>
-              </thead>
+
               <tbody>
 
 
               </tbody>
           </table>
+
           <div class="advanced">
+              <a href="http://garden20.com/get" target="_blank">Get your own Garden</a><br/>
               [<a href="#" class="advanced-toggle">Show Advanced Locations</a>]
           </div>
+          <a href="../{{id}}">Prev</a>
+          <a href="#" class="btn large primary next">Next</a>
+          <h3 class="please-wait" style="display: none;">Please wait...</h3>
 
       </div>
-    </div>
-    <div class="row">
-        <div class="span11">
-            <a href="#" class="btn large primary next">Next</a>
-            <h3 class="please-wait" style="display: none;">Please wait...</h3>
-        </div>
     </div>
   </div>
 </div>
