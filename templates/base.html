@@ -10,7 +10,11 @@
         /* This just makes sure we have a trailing slash on our url */
         var db_name = '{{db_name}}';
         if (window.location.pathname === '/' + db_name) {
-            window.location = '/' + db_name + '/';
+            var ensure_have_slash =  '/' + db_name + '/';
+            if (window.location.search) {
+                ensure_have_slash + window.location.search;
+            }
+            window.location = ensure_have_slash;
         }
     </script>
   </head> 
