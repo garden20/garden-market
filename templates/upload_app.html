@@ -25,7 +25,7 @@
         <h2>Uploading an app</h2>
         <p>
           If you don't already have an account on this site, you'll need to create
-          one before uploading an app to the Garden. Make sure you're using Kanso
+          one before uploading an app to the Garden. Make sure you have <a href="http://kan.so">Kanso</a>
           0.1.4 or higher, then use the following command to upload your app:
         </p>
         <pre class="upload_url"></pre>
@@ -139,14 +139,30 @@
 
         <h4>Website</h4>
         <p>
-          If the app has a website or GitHub repository, you may wish to add this
-          to the <code>url</code> property in your <code>kanso.json</code> file.
+          Please provide your GitHub repository as your website. This provides the best experience
+          for the market, end users, and other developers.
+          Just add the <code>url</code> property in your <code>kanso.json</code> file.
           It will be displayed on the app detail page.
         </p>
 <pre><code class="javascript">{
     "url": "https://github.com/kanso/garden"
     ...
 }</code></pre>
+
+          <h4>Payment</h4>
+          <p>
+              App developers should be rewarded for their hard work.
+              We have provided integration with <a href="http://flattr.com/">flatter</a>
+              so you can receive payments for your app. No payment is forced on a user in a market, but flattr
+              provides the best open model for payments currently. Another advantage is that international developers
+              can partake of the benefits.
+              Just add the <code>flattr_user_id</code> in your <code>kanso.json</code> file.
+          </p>
+<pre><code class="javascript">{
+    "flattr_user_id": "myname"
+    ...
+}</code></pre>
+
       </div>
 
       <div id="sidebar" class="span4">
