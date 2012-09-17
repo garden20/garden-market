@@ -1,7 +1,24 @@
 {
     "name": "market",
     "version": "0.0.1",
-    "description": "A Garden Market.",
+    "description": "Host your own app market.",
+    "long_description": "The Garden Market app lets you host your own app market. Users can upload apps, and you can manage them according to your own terms. \n\n You are also able to sync with other existing garden-markets.",
+    "url": "https://github.com/garden20/garden-market",
+    "categories": ["market"],
+    "flattr_user_id" : "eckoit",
+    "icons": {
+        "16": "static/img/promo/icon_16.png",
+        "48": "static/img/promo/icon_48.png",
+        "96": "static/img/promo/icon_96.png",
+        "128": "static/img/promo/icon_128.png"
+    },
+    "promo_images": {
+        "small": "static/img/promo/promo_small.png"
+    },
+    "screenshots": [
+        "static/img/promo/screenshot1.png",
+        "static/img/promo/screenshot2.png"
+    ],
     "modules": ["lib", "views"],
     "load": "lib/app",
     "less": {
