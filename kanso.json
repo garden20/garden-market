@@ -19,6 +19,27 @@
         "static/img/promo/screenshot1.png",
         "static/img/promo/screenshot2.png"
     ],
+    "settings_schema" : {
+        "description": "Market Settings",
+        "type": "object",
+        "properties": {
+            "use_garden_market_logo" : {
+                "type": "boolean"
+            },
+            "market_name": {
+                "type": "string"
+            },
+            "use_google_analytics" : {
+                "type": "boolean"
+            },
+            "google_analytics_code": {
+                "type": "string"
+            },
+            "admin_review_apps": {
+                "type": "boolean"
+            }
+        }
+    },
     "modules": ["lib", "views"],
     "load": "lib/app",
     "less": {

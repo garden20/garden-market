@@ -3,7 +3,13 @@
     <div class="row">
       <div class="span5">
         <div class="icon">
-            <a href="{{baseURL}}"><img src="static/img/logo.png"/></a>
+            <a href="{{baseURL}}">
+            {{#if app_settings.use_garden_market_logo}}
+            <img src="static/img/logo.png"/>
+            {{else}}
+                <h2 class="name_logo">{{app_settings.market_name}}</h2>
+            {{/if}}
+            </a>
         </div>
       </div>
       <div class="span10">
