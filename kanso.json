@@ -1,6 +1,6 @@
 {
     "name": "market",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Host your own app market.",
     "long_description": "The Garden Market app lets you host your own app market. Users can upload apps, and you can manage them according to your own terms. \n\n You are also able to sync with other existing garden-markets.",
     "url": "https://github.com/garden20/garden-market",
