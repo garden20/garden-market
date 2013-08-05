@@ -34,6 +34,18 @@ exports.readBrowserCookies = function () {
     return cookies;
 };
 
+exports.readCookie = function(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+
 /**
  * Reads browser cookies and returned the value of the named cookie.
  *
@@ -81,7 +93,6 @@ exports.setBrowserCookie = function (req, opt) {
         throw new Error('setBrowserCookie cannot be called server-side');
     }
     var str = (typeof opt === 'string') ? opt: exports.cookieString(req, opt);
-    //console.log('document.cookie = ' + str);
     document.cookie = str;
 };
 
